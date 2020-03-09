@@ -1,0 +1,184 @@
+<html>
+    <head>
+        <style>
+            h2{
+                text-align: center;
+                color: orangered;
+                letter-spacing: 6px;
+            }
+            .form{
+                position: absolute;
+                left: 50%;
+                top: 40%;
+                transform: translate(-50%,-50%);
+                background: white;
+                max-width: 350px;
+                width: 100%;
+                padding: 25px;
+                border-radius: 5px;
+                box-shadow: 2px 4px 10px rgba(230,0,0,1);
+            }
+            .form .i1{
+                margin-bottom: 15px;
+            }
+            .form .i1 input[type="text"]{
+                width: 100%;
+                padding: 10px;
+                border: 1px solid grey;
+                border-radius: 50px;
+            }
+            .form .but input[type="submit"]{
+                border: 0;
+                margin-top: 15px;
+                padding: 10px;
+                width: 100%;
+                background-color: orangered;
+                text-transform: uppercase;
+                color: white;
+                letter-spacing: 6px;
+                border-radius:25px;
+                font-weight:bold;
+                cursor: pointer;
+            }
+             #f,#l,#e,#u,#p,#cp{
+                margin-bottom: 20px;
+                padding: 0px;
+                background: red;
+                text-align: center;
+                font-size: 12px;
+                 color: white;
+                 font-weight: bold;
+                 letter-spacing: 2px;
+                 text-transform: lowercase;
+                transition: all 0.2s ease;
+            }
+            
+            
+        </style>
+    </head>
+    <body style="background-color: lightcoral;">
+        <div class="form">
+        <h2>FORM</h2>
+        <!--<div id = "err"></div>-->
+        <form id="myform" onsubmit="return validation()">
+            <div class="i1">
+                <input id="first" type="text" placeholder="first name"> 
+                <p id="f"></p>
+            </div>
+            <div class="i1">
+                <input id="last" type="text" placeholder="last name">
+                <p id="l"></p>
+            </div>
+            <div class="i1">
+                <input id="email" type="text" placeholder="email">
+                <p id="e"></p>
+                 
+            </div>
+            <div class="i1">
+                <input id="uid" type="text" placeholder="user ID">       
+                <p id="u"></p>
+            </div>
+            <div class="i1">
+                <input id="pass" type="text" placeholder="password">
+                <p id="p"></p>
+            </div>
+            <div class="i1">
+                <input id="conf" type="text" placeholder="confirm password">
+                <p id="cp"></p>
+            </div>
+            <div class="but">
+            <input type="submit">
+            </div>
+        </form>
+        </div>
+        
+        <script>
+            function validation(){
+                var fname = document.getElementById("first").value;
+
+                var lname = document.getElementById("last").value;
+                var email = document.getElementById("email").value;
+                var uid = document.getElementById("uid").value;
+                var pass = document.getElementById("pass").value;
+                var conf = document.getElementById("conf").value;
+        
+                var txt;
+                if(fname == ""){
+                    /*txt = "enter a valid first name";
+                    err.innerHTML = txt;*/
+                    document.getElementById("f").innerHTML="enter a valid first name";
+                     f.style.padding = "5px";
+                    return false;
+                }
+                else{
+                    document.getElementById("f").innerHTML="";
+                    f.style.padding = "";
+    
+                }
+                
+                
+                if(lname == ""){
+                    document.getElementById("l").innerHTML="enter a valid last name";
+                     l.style.padding = "5px";
+                     return false;
+                }
+                else{
+                     document.getElementById("l").innerHTML="";
+                    l.style.padding = "";
+                    
+
+                }
+                
+                if(email.indexOf("@")<1|| email.lastIndexOf(".")<email.indexOf("@")+2 || email.lastIndexOf(".")+2>=email.length){
+                     document.getElementById("e").innerHTML="enter a valid email address";
+                    e.style.padding = "5px";
+
+                    return false;
+                }
+                else{
+                     document.getElementById("e").innerHTML="";
+                      e.style.padding = "";
+
+
+                }
+                if(uid == ""){
+                 document.getElementById("u").innerHTML="enter a valid user ID";
+                    u.style.padding = "5px";
+                    return false;
+
+                }
+                else{
+                 document.getElementById("u").innerHTML="";
+                u.style.padding = "";
+
+                }
+                
+                if(pass == ""){
+                   document.getElementById("p").innerHTML="enter a valid password";
+                    p.style.padding = "5px";
+                    return false;
+                }
+                else{
+                   document.getElementById("p").innerHTML="";
+                    p.style.padding = "";
+
+
+                }
+                if(conf == "" || conf != pass){
+                    document.getElementById("cp").innerHTML="password must be same";
+                   cp.style.padding = "5px";
+
+                    return false;
+                }
+                else{
+                    document.getElementById("cp").innerHTML="";
+                    cp.style.padding = "";
+
+                }
+                alert("submitted successfully");
+                return true;
+                
+            }
+        </script>
+    </body>
+</html>
